@@ -1,5 +1,5 @@
 # Introduction
-The project aimed to analyze the sentiment of the post-Grand Prix tweets for each team for the current 2022 season. For the scope of the project, only three teams were used - Red Bull Racing, Scuderia Ferrari, and Mercedes AMG Petronas. However, it can be done with all F1 teams, as long as they have a Twitter account and use it. This repository is complementary to and contains the code briefly explained in this Towards Data Science article: 
+The project aimed to analyze the sentiment of the post-Grand Prix tweets for each team for the current 2022 season. For the scope of the project, only three teams were used - Red Bull Racing, Scuderia Ferrari, and Mercedes AMG Petronas. However, it can be done with all F1 teams, as long as they have a Twitter account and use it. This repository is complementary to and contains the code briefly explained in this Towards Data Science article: https://medium.com/@nielsdeckers/how-does-formula-1-grand-prix-performance-impact-twitter-sentiment-3cac02c201b9
 
 # Getting the Twitter data
 In the get_twitter_data.py file, there are two ways to acquire the Twitter data of a user.
