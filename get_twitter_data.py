@@ -18,6 +18,7 @@ def get_account_data(username, start_date = '2022-03-20', only_tweets = True):
             tweets.append([tweet.content, tweet.id, tweet.date, tweet.retweetCount, tweet.replyCount, tweet.likeCount, tweet.quoteCount, tweet.user.username])
 
     df = pd.DataFrame(tweets, columns = ['text', 'id', 'created_at', 'public_metrics.retweet_count', 'public_metrics.reply_count', 'public_metrics.like_count', 'public_metrics.quote_count', 'user'])
+    
     return df
 
 # Creates the pd.DataFrame with the last 3100 tweets of an account
@@ -60,44 +61,3 @@ def get_account_data_api(username, token, num_tweets = 100, increment = 100):
             
 
     return df 
-
-# Adds additional columns: one with string of the tagged accounts and another with the number of tagged accounts
-def add_tagged_people(data):
-    strings = data['text']
-    data['tagged_ppl'] = ""
-
-    for i in range(len(data)):
-        sub_string = '@'
-        
-        if sub_string in strings[i]:
-            split_string = strings[i].split()
-            total_string = ' '
-            count = 0
-    
-            for s in split_string:
-                if sub_string in s:    
-                    total_string += ' ' + s
-                    count += 1
-                    data.loc[i, 'tagged_ppl'] = total_string
-                data.loc[i, 'num_tagged_ppl'] = count
-    return data
-
-def add_hashtags(data):
-    strings = data['text']
-    data['hashtags'] = ""
-
-    for i in range(len(data)):
-        sub_string = '#'
-        
-        if sub_string in strings[i]:
-            split_string = strings[i].split()
-            total_string = ' '
-            count = 0
-    
-            for s in split_string:
-                if sub_string in s:    
-                    total_string += ' ' + s
-                    count += 1
-                    data.loc[i, 'hashtags'] = total_string
-                data.loc[i, 'num_hashtags'] = count
-    return data
